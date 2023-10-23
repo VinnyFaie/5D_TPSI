@@ -1,0 +1,31 @@
+<div class="text-center bg-dark align-content-center">
+<table class="table table-warning table-striped">
+  <thead class="text-light font-weight-bold">
+    <tr>
+      <th>AUTORE</th>
+      <th>PAESE</th>
+      <th>PAGINE</th>
+      <th>TITOLO</th>
+      <th>ANNO</th>
+    </tr>
+  </thead>
+  <tbody class="text-light"
+         *ngFor="
+  let item of books;
+  let i=index;
+  ">
+  <tr >
+    <td> {{item.author}}</td>
+    <td> {{item.country}}</td>
+    <td> {{item.pages}}</td>
+    <td> {{item.title}}</td>
+    <td> {{item.year}}</td>
+  </tr>
+
+  </tbody>
+</table>
+  <hr>
+  <div class="bg-warning">
+    test
+  </div>
+</div>
