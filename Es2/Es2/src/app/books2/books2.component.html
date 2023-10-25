@@ -1,0 +1,33 @@
+<div class="text-center bg-warning align-content-center">
+
+  <div class="h3">
+    <label for="chkShow" class="text-dark ">Show Pages:</label>
+    <input type="checkbox" id="chkShow" class="form-check-inline"  [(ngModel)]="showPages">
+  </div>
+  <div class="container container-md">
+    <table class="table table-dark">
+      <thead class="bg-dark">
+      <!-- Le pipe di angular sono funzioni per lavorarci -->
+      <tr>
+        <th *ngFor="let b of books[0] | keyvalue">
+          <span *ngIf="b.key != 'pages' else mostraIntestPages">{{b.key}}</span>
+          <ng-template #mostraIntestPages>
+            <span *ngIf="showPages"></span>
+          </ng-template>
+
+        </th>
+      </tr>
+
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of books"  [ngClass]="{'ita':item.country == 'Italia','bg-warning':item.country=='Italia'}">
+        <td *ngFor="let field of item | keyvalue" >{{field.value}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
+
+
