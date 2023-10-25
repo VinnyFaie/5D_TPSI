@@ -64,5 +64,6 @@ export class ArticoloComponent {
       year: 1886
     }
   ];
+  showPages: boolean = true;
 }
 

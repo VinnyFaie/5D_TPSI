@@ -1,29 +1,44 @@
 <div class="text-center bg-dark align-content-center">
-<table class="table table-warning table-striped">
-  <thead class="text-light font-weight-bold">
-    <tr>
-      <th>AUTORE</th>
-      <th>PAESE</th>
-      <th>PAGINE</th>
-      <th>TITOLO</th>
-      <th>ANNO</th>
-    </tr>
-  </thead>
-  <tbody class="text-light"
-         *ngFor="
+  <div class="h3">
+    <label for="chkShow" class="text-warning ">Show Pages:</label>
+    <input type="checkbox" id="chkShow" class="form-check-inline"  [(ngModel)]="showPages">
+  </div>
+
+  <br>
+  <div class="container container-md">
+    <table class="table table-warning">
+      <thead class="text-light font-weight-bold bg-warning">
+      <tr>
+        <th>#</th>
+        <th>AUTORE</th>
+        <th>PAESE</th>
+
+        <th>TITOLO</th>
+        <th>ANNO</th>
+
+        <th *ngIf="showPages">PAGINE</th>
+      </tr>
+      </thead>
+      <tbody class="text-light"
+             *ngFor="
   let item of books;
   let i=index;
-  ">
-  <tr >
-    <td> {{item.author}}</td>
-    <td> {{item.country}}</td>
-    <td> {{item.pages}}</td>
-    <td> {{item.title}}</td>
-    <td> {{item.year}}</td>
-  </tr>
+"
+      >
+      <tr [ngClass]="{'ita':item.country == 'Italia','bg-warning':item.country=='Italia'}">
+        <td>{{i+1}}</td>
+        <td> {{item.author}}</td>
+        <td> {{item.country}}</td>
 
-  </tbody>
-</table>
+        <td> {{item.title}}</td>
+        <td> {{item.year}}</td>
+
+        <td *ngIf="showPages"> {{item.pages}}</td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
   <hr>
   <div class="bg-warning">
     test
