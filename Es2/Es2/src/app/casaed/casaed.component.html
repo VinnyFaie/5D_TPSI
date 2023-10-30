@@ -1,0 +1,25 @@
+<div class="container container-md bg-warning">
+  <table class="table table-dark">
+    <thead class="bg-dark">
+    <!-- Le pipe di angular sono funzioni per lavorarci -->
+    <tr>
+      <th *ngFor="let b of casaEditrice[0] | keyvalue">
+        <span *ngIf="b.key != 'pages'">{{b.key.toUpperCase()}}</span>
+        <ng-template #mostraIntestPages>
+          <span>{{b.key.toUpperCase()}}</span>
+        </ng-template>
+
+      </th>
+    </tr>
+
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of casaEditrice">
+      <td *ngFor="let field of item | keyvalue" >
+        <span *ngIf="field.key != 'pages'">{{field.value}}</span>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -10,9 +10,9 @@
       <!-- Le pipe di angular sono funzioni per lavorarci -->
       <tr>
         <th *ngFor="let b of books[0] | keyvalue">
-          <span *ngIf="b.key != 'pages' else mostraIntestPages">{{b.key}}</span>
+          <span *ngIf="b.key != 'pages' else mostraIntestPages">{{b.key.toUpperCase()}}</span>
           <ng-template #mostraIntestPages>
-            <span *ngIf="showPages"></span>
+            <span *ngIf="showPages">{{b.key.toUpperCase()}}</span>
           </ng-template>
 
         </th>
@@ -20,13 +20,30 @@
 
       </thead>
       <tbody>
-      <tr *ngFor="let item of books"  [ngClass]="{'ita':item.country == 'Italia','bg-warning':item.country=='Italia'}">
-        <td *ngFor="let field of item | keyvalue" >{{field.value}}</td>
+      <tr *ngFor="let item of books" (click)="sendCasa(item.cEd)" [ngClass]="{'ita':item.country == 'Italia','bg-warning':item.country=='Italia'}">
+        <td *ngFor="let field of item | keyvalue" >
+          <span *ngIf="field.key != 'pages'; else mostraPages">{{field.value}}</span>
+          <ng-template #mostraPages>
+            <span *ngIf="showPages; else mostraAsterisco">{{field.value}}</span>
+            <ng-template #mostraAsterisco>***</ng-template>
+          </ng-template>
+
+        </td>
       </tr>
       </tbody>
     </table>
   </div>
 
+  <br>
+  <hr class="text-dark">
+  <br>
+
+  <div class="bg-warning">
+    <casaed></casaed>
+  </div>
+
+
+<br>
 
 </div>
 
