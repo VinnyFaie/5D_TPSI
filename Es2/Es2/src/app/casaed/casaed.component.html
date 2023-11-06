@@ -1,25 +1,14 @@
-<div class="container container-md bg-warning">
-  <table class="table table-dark">
-    <thead class="bg-dark">
-    <!-- Le pipe di angular sono funzioni per lavorarci -->
-    <tr>
-      <th *ngFor="let b of casaEditrice[0] | keyvalue">
-        <span *ngIf="b.key != 'pages'">{{b.key.toUpperCase()}}</span>
-        <ng-template #mostraIntestPages>
-          <span>{{b.key.toUpperCase()}}</span>
-        </ng-template>
+<button class="btn btn-dark" (click)="visCodCasa()">Visualizza cod casa ed</button>
+<div *ngFor="let ced of casaEditrice">
+  <div *ngIf="ced.cod == codCasa">
+    {{ced.cod}} - {{ced.nome}} - {{ced.sede}} - {{ced.capSociale}}€
+  </div>
+</div>
+<br>
+<hr class="text-dark">
 
-      </th>
-    </tr>
-
-    </thead>
-    <tbody>
-    <tr *ngFor="let item of casaEditrice">
-      <td *ngFor="let field of item | keyvalue" >
-        <span *ngIf="field.key != 'pages'">{{field.value}}</span>
-
-      </td>
-    </tr>
-    </tbody>
-  </table>
+<div class="row">
+  <label for="txtUtente" class="col-1">Ultimo utente ad aver noleggiato il libro: </label>
+  <input [(ngModel)]="lastUser" type="text" class="form-control col-1 w-50" id="txtUtente">
+  <button class="btn btn-primary w-100 mt-3 mb-3" (click)="inviaLastUser()">Invia dati al componente padre</button>
 </div>

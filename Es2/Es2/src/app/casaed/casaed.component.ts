@@ -1,4 +1,5 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {CommonService} from "../service/common.service";
 
 @Component({
   selector: 'casaed',
@@ -6,6 +7,11 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./casaed.component.css']
 })
 export class CasaedComponent {
+
+  constructor(private commonService: CommonService) {
+
+  }
+
   casaEditrice = [
     {
       cod: 1,
@@ -27,4 +33,23 @@ export class CasaedComponent {
     }];
 
   @Input() codCasa: number = 0; //direttiva importata da Angular core
+  lastUser: string = "";
+  @Output() sendLastUser = new EventEmitter(); //direttiva importata da Angular core
+  objUser: any = {};
+
+
+  visCodCasa() {
+    console.log("Casa Ed from father: "+this.codCasa);
+    console.log("Last user from service: " + this.commonService.lastUserService);
+  }
+
+  inviaLastUser() {
+    this.objUser.user = this.lastUser;
+    this.objUser.dataPrestito = new Date;
+    this.objUser.nGiorni = 15;
+    this.sendLastUser.emit(this.objUser); //emissione dell'evento
+  }
+
+
+
 }

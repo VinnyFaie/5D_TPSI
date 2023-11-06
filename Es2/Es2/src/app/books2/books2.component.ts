@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {CommonService} from "../service/common.service"; //se non viene fatto automaticamente, lo dobbiamo aggiungere noi
 
 @Component({
   selector: 'books2',
@@ -6,6 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./books2.component.css']
 })
 export class Books2Component {
+
+  constructor(private commonService: CommonService) {
+
+  }
+
+
   //A livello di DB, cEd è una chiave esterna.
   //Infatti è il codice di una casa editrice.
   books = [
@@ -82,4 +89,24 @@ export class Books2Component {
     console.log("Casa editrice: "+cEd);
     this.codCasaEdForChild=cEd; //associo il parametro dal click
   }
+
+
+  objFromChild: any = {};
+  visDatiLastUser: boolean = false;
+
+
+  getLastUser(datoFromChild: any) {
+    this.visDatiLastUser = true;
+    this.objFromChild = datoFromChild;
+  }
+
+
+  visLastUserService() {
+    console.log("Last user from service: " + this.commonService.lastUserService);
+    this.commonService.lastUserService = "Topolino";
+  }
+
+
+
+  
 }

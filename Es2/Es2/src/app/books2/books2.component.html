@@ -38,13 +38,27 @@
   <hr class="text-dark">
   <br>
 
-  <div class="bg-warning">
-    <casaed></casaed>
+  <div class="bg-warning m-3 p-3"> <!--$event è l'evento passato dal padre al figlio-->
+    <casaed [codCasa]="codCasaEdForChild" (sendLastUser)="getLastUser($event)"></casaed>
   </div>
 
 
-<br>
+
 
 </div>
 
 
+
+<div class="bg bg-dark text-white m-3 p-3" *ngIf="this.visDatiLastUser">
+  Ultimo prestito del libro: {{objFromChild.user}} - {{objFromChild.dataPrestito}} - n. giorni {{objFromChild.nGiorni}}
+</div>
+
+<hr class="text-dark">
+
+<div>
+  <button class="btn btn-danger w-100" (click)="visLastUserService()">
+    Visualizza Last User service
+  </button>
+</div>
+
+<br>
