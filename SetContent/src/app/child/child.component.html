@@ -1,0 +1,41 @@
+<div>
+  <ng-content select="h1"></ng-content>
+  <!--
+  Segnamo dei segnaposto per inserire i contenuti.
+  I contenuti che avevamo in app.component erano
+  dei parametri. Con ng-content li abbiamo richiamati...
+
+  Possiamo aggiungere un "select" per selezionare un elemento
+  specifico...E ne richiama solo uno. Funziona sia con
+  id che con il tag.
+
+  ID -> #id
+  CLASSE -> .classe
+  TAG -> nometag
+
+  Classi ed ID non devono essere necessariamente
+  definite per poterli usare.
+
+
+  Una cosa: I contenuti in altri tag figli non verranno
+  visualizzati a meno che non siano richiamati nel loro
+  rispettivo componente.
+  -->
+</div>
+
+<div>
+  <ng-content select=".text"></ng-content>
+</div>
+
+<div>
+  <ng-content select="random"></ng-content>
+</div>
+
+<div>
+  <ng-content></ng-content>
+</div>
+
+<div>
+  <ng-content select="h2"></ng-content>
+</div>
+
