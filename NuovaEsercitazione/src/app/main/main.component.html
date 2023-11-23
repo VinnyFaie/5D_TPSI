@@ -1,0 +1,35 @@
+<button class="btn btn-primary" (click)="getData()">GET DATA</button>
+
+
+<div class="container container-sm m-3">
+  Cibi:
+
+  <div class="row">
+    <div class="col">
+      <div class="row">
+
+        <button class="col-4 btn btn-light border-primary text-primary m-3" *ngFor="let item of data | keyvalue" (click)="getMeals(item.key)">
+          {{item.key}}
+        </button>
+
+      </div>
+    </div>
+    </div>
+
+
+
+  <div class="w-100 container-fluid">
+    <cibo [vetMeals]="mealsForChild" (sendNpasti)="getNpasti($event)"></cibo>
+  </div>
+
+
+
+
+</div>
+
+
+<br><br><br>
+
+<hr class="text-primary">
+
+<div class="container container-sm m-3"><libri></libri></div>

@@ -1,0 +1,37 @@
+<div class="h3">
+  <label for="chkShow" class="text-dark ">Show Pages:</label>
+  <input type="checkbox" id="chkShow" class="form-check-inline" [(ngModel)]="showPages">
+</div>
+<div class="container container-md">
+  <table class="table table-primary">
+    <thead class="bg-primary">
+
+
+    <tr>
+      <th *ngFor="let b of books[0] | keyvalue" class="bg bg-primary text-white">
+
+          <span>{{b.key.toUpperCase()}}</span>
+
+      </th>
+    </tr>
+
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of books" (click)="sendCasa(item.cEd)" [ngClass]="{'ita':item.country == 'Italia','bg-warning':item.country=='Italia'}">
+      <td *ngFor="let field of item | keyvalue" >
+        <span *ngIf="field.key != 'pages'; else mostraPages">{{field.value}}</span>
+        <ng-template #mostraPages>
+          <span *ngIf="showPages; else mostraAsterisco">{{field.value}}</span>
+          <ng-template #mostraAsterisco>***</ng-template>
+        </ng-template>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<hr class="text-primary">
+
+<componente-figlio-libri></componente-figlio-libri>

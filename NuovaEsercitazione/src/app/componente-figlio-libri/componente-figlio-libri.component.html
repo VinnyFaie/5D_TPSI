@@ -1,0 +1,26 @@
+<div class="container container-md">
+  <table class="table table-info">
+    <thead class="bg-info">
+
+
+    <tr>
+      <th *ngFor="let b of casaEditrice[0] | keyvalue" class="bg bg-info text-white">
+
+        <span>{{b.key.toUpperCase()}}</span>
+
+      </th>
+    </tr>
+
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of casaEditrice">
+      <td *ngFor="let field of item | keyvalue" >
+
+        <span>{{field.value}}</span>
+
+      </td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>

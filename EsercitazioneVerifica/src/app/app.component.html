@@ -1,0 +1,29 @@
+<header-pagina></header-pagina>
+<hr class="text-primary">
+
+
+
+<div class="text-center">
+  <div class="bg bg-primary container container-sm mt-3">
+    <div class="bg bg-light container container-sm text-center justify-content-center align-items-center align-content-center ">
+
+      <div class="row">
+        <button class="btn btn-primary col m-3 col-6" (click)="getData()">
+          Prendi Dati
+        </button>
+        <p class="text-primary bg bg-dark col-4 rounded mt-4">{{nPiatti}}</p>
+        <div class="col"></div>
+        <button class="btn btn-primary col m-3" (click)="mostra()" (sendNpasti)="getNpasti($event)">Ordina</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg bg-primary text-light container-sm mt-5 text-center" *ngIf="mostraPiattiOrdinati == true">
+  <div class="bg bg-dark container container-sm ">
+    <ordinazione [vetMeals]="piattiOrdinati"></ordinazione>
+  </div>
+</div>
+
+
+<cibi></cibi>

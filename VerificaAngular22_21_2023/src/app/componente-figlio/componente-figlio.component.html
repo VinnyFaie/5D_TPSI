@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-6 text-center text-info">
+    Visualizza Password della classe:
+  </div>
+  <input type="checkbox" class="form-check col-1" [(ngModel)]="showPass" (click)="mostraVal()">
+</div>
+
+<hr class="text-info">
+
+<div class="text-center text-info row">
+  <div class="col-6">Totale premi classe:</div>
+   <div class="fw-bold col">{{nPremi}}</div>
+
+  <!--<input type="text" class="form-control" [(ngModel)]="numeroClassi">-->
+</div>
+<br>
+
+
+
+
+
+  <button class="btn btn-info text-light fw-bold w-100 col" (click)="click_ContaPremi()">Conta premi classe</button>
+
+
+
+
+
+<div class="card m-3" *ngFor="let alunno of vetClassi" [ngClass]="{'maschio':alunno.genere == 'M','border-primary':alunno.genere == 'M', 'femmina':alunno.genere == 'F', 'border-warning':alunno.genere == 'F'}">
+
+
+  <h1 class="card-title text-light" [ngClass]="{'bg-primary':alunno.genere=='M','bg-danger':alunno.genere=='F'}">ID: {{alunno.id}}</h1>
+  <div class="card-body">
+    <p class="card-text">nome: {{alunno.nome}}</p>
+    <p class="card-text">e-mail: {{alunno.mail}}</p>
+    <p class="card-text bg-dark text-light">password:
+
+      <span *ngIf="alunno.key != 'pwd'; else mostraPages">{{alunno.pwd}}</span>
+      <ng-template #mostraPages>
+        <span *ngIf="showPass; else mostraAsterisco">{{alunno.pwd}}</span>
+        <ng-template #mostraAsterisco>*******</ng-template>
+      </ng-template>
+
+    </p>
+    <p class="card-text">genere: {{alunno.genere}}</p>
+    <h5 class="card-text">Luogo di nascita: {{alunno.residenza}} ,{{alunno.dob}}</h5>
+
+    <hr class="text-primary">
+
+    <h4 class="card-text">SPORT:</h4>
+    <ul *ngFor="let sport of alunno.sports">
+      <li>{{sport}}</li>
+    </ul>
+    <h1>Premi vinti: {{alunno.premi}}</h1>
+  </div>
+  <img src="{{alunno.img}}" alt="immagine non trovata: {{alunno.img}}" class="card-img-bottom">
+
+</div>

@@ -1,0 +1,13 @@
+<button class="btn btn-info text-light text-center" (click)="seePasti()">Visualizza Ordini</button>
+
+<div class="col-12 bg bg-light">
+  <div class="card myCard text-center border-primary rounded" *ngFor="let m of pastiPresi">
+    <img class="card-img-top" src="{{m.strMealThumb}}" alt="err">
+    <div class="card-body">
+      <h3 class="card-title text-center">ID MEAL: {{m.idMeal}}</h3>
+      <h4 class="card-text text-center">{{m.strMeal}}</h4>
+    </div>
+
+  </div>
+</div>
+

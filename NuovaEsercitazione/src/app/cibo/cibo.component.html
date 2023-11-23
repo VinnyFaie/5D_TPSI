@@ -1,0 +1,26 @@
+<div class="row bg-light rounded m-5">
+  <p class="col">
+    {{nPasty}}
+  </p>
+  <button class="btn btn-primary col" (click)="prenota()">Conferma Ordine</button>
+</div>
+
+<div class="bg-light rounded p-5">
+
+
+
+    <div class="card myCard text-center border-primary rounded" *ngFor="let meal of vetMeals">
+    <img class="card-img-top" src="{{meal.strMealThumb}}" alt="err">
+    <div class="card-body">
+      <h3 class="card-title text-center">ID MEAL: {{meal.idMeal}}</h3>
+      <h4 class="card-text text-center">{{meal.strMeal}}</h4>
+      <h3 class="text-center"><button class="btn btn-primary" (click)="ordina(meal)">ORDINA</button></h3>
+    </div>
+
+  </div>
+
+
+</div>
+
+<hr class="text-primary col-12">
+<child-cibo (sendPasti)="getPasti($event)" [vetPasti]="pastiPresi" *ngIf="visualizza"></child-cibo>
