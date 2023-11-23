@@ -1,1 +1,77 @@
-<p>pipes works!</p>
+<table class="table table-striped table-bordered">
+<thead class="thead-dark">
+  <tr class="bg-warning">
+    <th>Pipe</th>
+    <th>Esempio senza Pipe</th>
+    <th>Pipe applicata</th>
+  </tr>
+</thead>
+
+
+<tbody>
+  <tr>
+    <td>TitleCase</td>
+    <td> {{pizza}}</td>
+    <td>{{pizza | titlecase}}</td>
+  </tr>
+
+  <tr>
+    <td>UpperCase</td>
+    <td> {{pizza}}</td>
+    <td>{{pizza | uppercase}}</td>
+  </tr>
+
+  <tr>
+    <td>LowerCase</td>
+    <td> {{pasta}}</td>
+    <td>{{pasta | lowercase}}</td>
+  </tr>
+
+
+  <tr>
+    <td>Currency</td>
+    <td> {{valuta}}</td>
+    <td>{{valuta | currency:'EUR'}}</td> <!-- Se non è impostato il tipo di valuta, ci metterà il $ -->
+  </tr>
+
+  <tr>
+    <td>Currency</td>
+    <td> {{valuta}}</td>
+    <td>{{valuta | currency:'GBP':'symbol'}}</td> <!-- Se non è impostato il tipo di valuta, ci metterà il $ -->
+  </tr>
+
+  <tr>
+    <td>Currency</td>
+    <td> {{valuta}}</td>
+    <td>{{valuta | currency:'GBP':'symbol':'2.3-3'}}</td> <!-- Se non è impostato il tipo di valuta, ci metterà il $ -->
+  </tr>
+
+  <tr>
+    <td>Number</td>
+    <td> {{piGreco}}</td>
+    <td>{{piGreco | number:'1.2-2'}}</td>
+  </tr>
+
+  <tr>
+    <td>Percent</td>
+    <td> {{percent}}</td>
+    <td>{{percent | percent:'1.1-1'}}</td> <!-- Se non è impostato il tipo di valuta, ci metterà il $ -->
+  </tr>
+
+  <tr>
+    <td>Percent</td>
+    <td> {{percent}}</td>
+    <td>{{percent | percent}}</td> <!-- Se non è impostato il tipo di valuta, ci metterà il $ -->
+  </tr>
+
+  <tr>
+    <td>Slice</td>
+    <td> {{pizza}}</td>
+    <td>{{pizza | slice:0:5}}</td> <!-- Se non è impostato il tipo di valuta, ci metterà il $ -->
+  </tr>
+
+
+  </tbody>
+
+
+</table>
